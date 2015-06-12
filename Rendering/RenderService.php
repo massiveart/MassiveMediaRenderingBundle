@@ -7,7 +7,6 @@ use Massive\Bundle\MediaRenderingBundle\Rendering\Document\Document;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Image\Image;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Video\Video;
-use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
 class RenderService
 {
@@ -47,13 +46,13 @@ class RenderService
 
         $image = null;
         if ($this->documentService->supportsMimeType($mimeType)) {
-            $image = null;
+            $image = $this->documentService->render($source, $options);
         } else if ($this->videoService->supportsMimeType($mimeType)) {
             $image = null;
         } else if ($this->imageService->supportsMimeType($mimeType)) {
             $image = null;
         }  else {
-            throw new FileNotSupportedException($mimeType);
+            throw new FileNotSupportedException($mimeType, 1, null);
         }
 
         return $image;

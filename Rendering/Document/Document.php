@@ -6,7 +6,7 @@ use Imagine\Image\ImageInterface;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderOptions;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceInterface;
-use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 
 class Document extends RenderServiceAbstract
 {
@@ -14,14 +14,16 @@ class Document extends RenderServiceAbstract
      * @var RenderServiceInterface[];
      */
     private $services = array();
-    
+
     /**
-     * redner media to an image
+     * render media to images
      *
      * @param string $source
      * @param RenderOptions $options
      *
-     * @return ImageInterface
+     * @return ImageInterface|null
+     *
+     * @throws FileNotSupportedException
      */
     public function render($source, RenderOptions $options)
     {
@@ -30,12 +32,12 @@ class Document extends RenderServiceAbstract
         
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
-            throw new FileNotSupportedException($mimeType);
+            throw new FileNotSupportedException($mimeType, 1, null);
         }
         
         foreach ($this->services as $service) {
             if ($service->supportsMimeType($mimeType)) {
-                $image = $service->render($source);
+                $image = $service->render($source, $options);
                 break;
             }
         }

@@ -5,7 +5,7 @@ namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 abstract class RenderServiceAbstract implements RenderServiceInterface
 {
     /**
-     * @param type $source
+     * @param string $source
      * 
      * @return string
      */

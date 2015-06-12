@@ -11,19 +11,22 @@ use Imagine\Imagick\Imagine;
 class Pdf extends RenderServiceAbstract
 {
     /**
-     * redner media to an image
+     * render media to image
      *
      * @param string $source
      * @param RenderOptions $options
      *
-     * @return ImageInterface
+     * @return Imagine
+     *
+     * @throws FileNotSupportedException
+     * @throws \Exception
      */
     public function render($source, RenderOptions $options)
     {
         $mimeType = self::getMimeType($source);
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
-            throw new FileNotSupportedException($mimeType);
+            throw new FileNotSupportedException($mimeType, 1, null);
         }
         
         $im = new imagick($source . '[0]');
@@ -48,7 +51,7 @@ class Pdf extends RenderServiceAbstract
     {
         $supported = false;
         switch ($mimeType) {
-            case "application/pdf":
+            case 'application/pdf':
                 $supported = true;
                 break;
         }
