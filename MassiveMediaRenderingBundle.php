@@ -4,7 +4,7 @@ namespace Massive\Bundle\MediaRenderingBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use DependencyInjection\DocumentCompilerPass;
+use Massive\Bundle\MediaRenderingBundle\DependencyInjection\DocumentCompilerPass;
 
 class MassiveMediaRenderingBundle extends Bundle
 {

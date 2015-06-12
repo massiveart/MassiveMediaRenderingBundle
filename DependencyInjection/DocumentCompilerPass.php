@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\DependencyInjection;
+namespace Massive\Bundle\MediaRenderingBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
