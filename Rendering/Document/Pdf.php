@@ -16,7 +16,7 @@ class Pdf extends RenderServiceAbstract
      * @param string $source
      * @param RenderOptions $options
      *
-     * @return Imagine
+     * @return ImageInterface Imagine
      *
      * @throws FileNotSupportedException
      * @throws \Exception
@@ -46,13 +46,12 @@ class Pdf extends RenderServiceAbstract
             if ($im->writeImage($tmpDestination) === false) {
                 throw new \Exception('Could not write temporary file ' . $tmpDestination);
             }
+            $image = new Imagine();
+            $handle = $image->open($tmpDestination);
+            $this->resize($handle, $options);
+            $handle->save($destination);
         }
 
-        // TODO handle allPages
-
-        $image = new Imagine();
-        $image->open($tmpDestination);
-        
         return $image;
     }
 

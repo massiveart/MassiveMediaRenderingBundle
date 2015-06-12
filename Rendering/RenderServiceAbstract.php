@@ -30,15 +30,4 @@ abstract class RenderServiceAbstract implements RenderServiceInterface
     {
         return $image->resize(new Box($options->getWidth(), $options->getHeight()));
     }
-    
-    /**
-     * @param type ImageInterface Description
-     * @param string $destination
-     */
-    public function writeImage(ImageInterface $image, $destination)
-    {
-        if (!file_put_contents($destination, $image)) {
-            
-        }
-    }
 }
