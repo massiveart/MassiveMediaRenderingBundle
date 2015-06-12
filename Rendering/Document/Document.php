@@ -2,6 +2,8 @@
 
 namespace Massive\MediaRenderingBundle\Rendering\Document;
 
-class Document
+use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+
+class Document implements RenderingServiceInterface
 {
 }

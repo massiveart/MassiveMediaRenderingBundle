@@ -2,7 +2,9 @@
 
 namespace Massive\MediaRenderingBundle\Rendering\Document;
 
-class Pdf
+use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+
+class Pdf implements RenderingServiceInterface
 {
     
 }

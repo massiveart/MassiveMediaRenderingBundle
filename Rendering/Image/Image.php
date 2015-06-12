@@ -2,7 +2,9 @@
 
 namespace Massive\MediaRenderingBundle\Rendering\Image;
 
-class Image
+use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+
+class Image implements RenderingServiceInterface
 {
     
 }
