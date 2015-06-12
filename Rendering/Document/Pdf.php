@@ -29,7 +29,7 @@ class Pdf extends RenderServiceAbstract
             throw new FileNotSupportedException($mimeType, 1, null);
         }
         
-        $im = new imagick($source . '[0]');
+        $im = new \imagick($source . '[0]');
         $im->setImageFormat($options->getDestinationFormat());
         $tmpDestination = sys_get_temp_dir() . uniqid();
         if (file_put_contents($tmpDestination, $im) === false) {
