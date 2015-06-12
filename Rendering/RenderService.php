@@ -7,8 +7,9 @@ use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 use Massive\MediaRenderingBundle\Rendering\Image\Image;
 use Massive\MediaRenderingBundle\Rendering\Document\Document;
 use Massive\MediaRenderingBundle\Rendering\Video\Video;
+use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
-class RenderService
+class RenderService extends RenderServiceAbstract
 {
     /** @var Image */
     protected $imageService;
@@ -42,9 +43,7 @@ class RenderService
      */
     public function render($source, RenderOptions $options, $destination = null)
     {
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mimeType = finfo_file($finfo, $source);
-        finfo_close($finfo);
+        $mimeType = $this->getMimeType($source);
 
         $image = null;
         if ($this->documentService->supportsMimeType($mimeType)) {
@@ -54,7 +53,7 @@ class RenderService
         } else if ($this->imageService->supportsMimeType($mimeType)) {
             $image = null;
         }  else {
-            throw new FileNotSupportedException("File not supported");
+            throw new FileNotSupportedException($mimeType);
         }
 
         return $image;

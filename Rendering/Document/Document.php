@@ -3,10 +3,17 @@
 namespace Massive\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
+use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
-class Document implements RenderingServiceInterface
+class Document extends RenderServiceAbstract implements RenderingServiceInterface
 {
+    /**
+     * @var RenderingServiceInterface[]; 
+     */
+    private $services = array();
+    
     /**
      * @param string $source
      *
@@ -14,16 +21,32 @@ class Document implements RenderingServiceInterface
      */
     public function render($source)
     {
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mimeType = finfo_file($finfo, $source);
-        finfo_close($finfo);
+        $image = null;
+        $mimeType = $this->getMimeType($source);
         
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
-            
+            throw new FileNotSupportedException($mimeType);
         }
+        
+        foreach ($this->services as $service) {
+            if ($service->supportsMimeType($mimeType)) {
+                $image = $service->render($source);
+                break;
+            }
+        }
+        
+        return $image;
     }
-
+    
+    /**
+     * @param RenderingServiceInterface $service
+     */
+    public function addRenderService(RenderingServiceInterface $service)
+    {
+        $this->services[] = $service;
+    }
+    
     /**
      * @param type $mimeType
      *
@@ -32,10 +55,10 @@ class Document implements RenderingServiceInterface
     public function supportsMimeType($mimeType)
     {
         $supported = false;
-        switch ($mimeType) {
-            case "application/pdf":
+        foreach ($this->services as $service) {
+            if ($service->supportsMimeType($mimeType)) {
                 $supported = true;
-                break;
+            }
         }
         
         return $supported;

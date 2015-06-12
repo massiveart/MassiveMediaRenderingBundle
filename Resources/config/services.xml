@@ -6,12 +6,15 @@
 
     <services>
         <service id="massive_media_rendering.image" class="Massive\MediaRenderingBundle\Rendering\Image\Image">
-        </service>
-        
-        <service id="massive_media_rendering.document.pdf" class="Massive\MediaRenderingBundle\Rendering\Document\Pdf">
+            <tag name="massive_media_rendering.image" />
         </service>
     
         <service id="massive_media_rendering.video" class="Massive\MediaRenderingBundle\Rendering\Video\Video">
+            <tag name="massive_media_rendering.video" />
+        </service>
+        
+        <service id="massive_media_rendering.document.pdf" class="Massive\MediaRenderingBundle\Rendering\Document\Pdf">
+            <tag name="massive_media_rendering.document" />
         </service>
         
         <service id="massive_media_rendering.document" class="Massive\MediaRenderingBundle\Rendering\Document\Document">
