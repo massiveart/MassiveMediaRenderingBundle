@@ -73,7 +73,7 @@ class PDFRenderCommand extends ContainerAwareCommand
         $height = $input->getArgument('height');
         $format = $input->getArgument('outputFormat');
         $keepRatio = $input->getArgument('keepRatio');
-        $allPages = $input->getArgument('allPages');
+        $allPages = $input->getArgument('allPages') == 'true';
         $page = $input->getArgument('page');
 
         // create options
