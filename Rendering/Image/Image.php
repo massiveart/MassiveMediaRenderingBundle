@@ -23,7 +23,7 @@ class Image extends RenderServiceAbstract
         $mimeType = self::getMimeType($source);
                 
         // check if mime type is supported
-        if ($this->supportsMimeType($mimeType)) {
+        if (!$this->supportsMimeType($mimeType)) {
             throw new FileNotSupportedException($mimeType);
         }
         
