@@ -39,6 +39,11 @@ class GenericRenderCommand extends ContainerAwareCommand
                 'resulting image height'
             )
             ->addArgument(
+                'outputFormat',
+                InputArgument::OPTIONAL,
+                'png, gif or jpg',
+                'png'
+            )->addArgument(
                 'keepRatio',
                 InputArgument::OPTIONAL,
                 'keep original ratio?',
@@ -52,6 +57,7 @@ class GenericRenderCommand extends ContainerAwareCommand
         $destination = $input->getArgument('destination');
         $width = $input->getArgument('width');
         $height = $input->getArgument('height');
+        $format = $input->getArgument('outputFormat');
         $keepRatio = $input->getArgument('keepRatio');
 
 
@@ -59,6 +65,7 @@ class GenericRenderCommand extends ContainerAwareCommand
         $options->setWidth($width);
         $options->setHeight($height);
         $options->setKeepRatio($keepRatio);
+        $options->setDestinationFormat($format);
 
         $this->getContainer()->get('massive_media_rendering.generic')->render($source, $options, $destination);
     }
