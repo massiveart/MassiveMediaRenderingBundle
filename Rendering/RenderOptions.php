@@ -7,9 +7,9 @@ namespace Massive\Bundle\MediaRenderingBundle\Rendering;
  */
 class RenderOptions
 {
-    const OUTPUT_FORMAT_PNG = "png";
-    const OUTPUT_FORMAT_JPG = "jpg";
-    const OUTPUT_FORMAT_GIF = "gif";
+    const OUTPUT_FORMAT_PNG = 'png';
+    const OUTPUT_FORMAT_JPG = 'jpg';
+    const OUTPUT_FORMAT_GIF = 'gif';
 
     /** @var int */
     private $width;

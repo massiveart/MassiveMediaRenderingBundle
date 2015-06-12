@@ -28,11 +28,13 @@ class Pdf extends RenderServiceAbstract
         if (!$this->supportsMimeType($mimeType)) {
             throw new FileNotSupportedException($mimeType, 1, null);
         }
-        
-        $im = new \imagick($source . '[0]');
+
+        $im = new \Imagick($source . '[0]');
         $im->setImageFormat($options->getDestinationFormat());
+
         $tmpDestination = sys_get_temp_dir() . uniqid();
-        if (file_put_contents($tmpDestination, $im) === false) {
+
+        if ($im->writeImage($tmpDestination) === false) {
             throw new \Exception('Could not write temporary file ' . $tmpDestination); 
         }
         
