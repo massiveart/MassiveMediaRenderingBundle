@@ -23,6 +23,12 @@ class RenderOptions
     /** @var string */
     private $destinationFormat = self::OUTPUT_FORMAT_PNG;
 
+    /** @var int */
+    private $page = 0;
+
+    /** @var bool */
+    private $allPages = false;
+
     /**
      * @return int
      */
@@ -85,5 +91,37 @@ class RenderOptions
     public function setDestinationFormat($destinationFormat)
     {
         $this->destinationFormat = $destinationFormat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * @param int $page
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAllPages()
+    {
+        return $this->allPages;
+    }
+
+    /**
+     * @param boolean $allPages
+     */
+    public function setAllPages($allPages)
+    {
+        $this->allPages = $allPages;
     }
 }
