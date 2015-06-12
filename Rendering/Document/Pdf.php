@@ -1,11 +1,11 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Document;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
-class Pdf extends RenderServiceAbstract implements RenderingServiceInterface
+class Pdf extends RenderServiceAbstract
 {
     /*
      * @param string source
@@ -15,7 +15,7 @@ class Pdf extends RenderServiceAbstract implements RenderingServiceInterface
     public function render($source)
     {
         $image = null;
-        $mimeType = $this->getMimeType($source);
+        $mimeType = self::getMimeType($source);
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
             throw new FileNotSupportedException($mimeType);
@@ -27,7 +27,7 @@ class Pdf extends RenderServiceAbstract implements RenderingServiceInterface
     }
     
     /**
-     * @param type $mimeType
+     * @param string $mimeType
      *
      * @return boolean
      */

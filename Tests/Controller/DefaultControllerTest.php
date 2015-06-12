@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Tests\Controller;
+namespace Massive\Bundle\MediaRenderingBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

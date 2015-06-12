@@ -2,14 +2,14 @@
 
 namespace Massive\MediaRenderingBundle\Rendering;
 
-class RenderServiceAbstract
+abstract class RenderServiceAbstract implements RenderingServiceInterface
 {
     /**
      * @param type $source
      * 
      * @return string
      */
-    public function getMimeType($source)
+    public static function getMimeType($source)
     {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mimeType = finfo_file($finfo, $source);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle;
+namespace Massive\Bundle\MediaRenderingBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

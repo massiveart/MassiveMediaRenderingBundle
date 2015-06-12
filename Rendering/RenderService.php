@@ -1,15 +1,15 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
 use Imagine\Image\ImageInterface;
-use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
-use Massive\MediaRenderingBundle\Rendering\Image\Image;
-use Massive\MediaRenderingBundle\Rendering\Document\Document;
-use Massive\MediaRenderingBundle\Rendering\Video\Video;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Document\Document;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Image\Image;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Video\Video;
 use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
-class RenderService extends RenderServiceAbstract
+class RenderService
 {
     /** @var Image */
     protected $imageService;
@@ -43,7 +43,7 @@ class RenderService extends RenderServiceAbstract
      */
     public function render($source, RenderOptions $options, $destination = null)
     {
-        $mimeType = $this->getMimeType($source);
+        $mimeType = RenderServiceAbstract::getMimeType($source);
 
         $image = null;
         if ($this->documentService->supportsMimeType($mimeType)) {

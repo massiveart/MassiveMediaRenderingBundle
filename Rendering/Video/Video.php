@@ -1,11 +1,12 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Video;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Video;
 
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
-use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
+use Imagine\Image\ImageInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 
-class Video extends RenderServiceAbstract implements RenderingServiceInterface
+class Video extends RenderServiceAbstract
 {
     /**
      * @param string $source
@@ -15,7 +16,7 @@ class Video extends RenderServiceAbstract implements RenderingServiceInterface
     public function render($source)
     {
         $image = null;
-        $mimeType = $this->getMimeType($source);
+        $mimeType = self::getMimeType($source);
 
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
@@ -27,7 +28,7 @@ class Video extends RenderServiceAbstract implements RenderingServiceInterface
     }
     
     /**
-     * @param type $mimeType
+     * @param string $mimeType
      *
      * @return boolean
      */

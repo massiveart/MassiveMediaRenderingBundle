@@ -1,13 +1,12 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Document;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
 use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
-use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
-class Document extends RenderServiceAbstract implements RenderingServiceInterface
+class Document extends RenderServiceAbstract
 {
     /**
      * @var RenderingServiceInterface[]; 
@@ -22,7 +21,7 @@ class Document extends RenderServiceAbstract implements RenderingServiceInterfac
     public function render($source)
     {
         $image = null;
-        $mimeType = $this->getMimeType($source);
+        $mimeType = self::getMimeType($source);
         
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
@@ -48,7 +47,7 @@ class Document extends RenderServiceAbstract implements RenderingServiceInterfac
     }
     
     /**
-     * @param type $mimeType
+     * @param string $mimeType
      *
      * @return boolean
      */

@@ -1,10 +1,10 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
 use Imagine\Image\ImageInterface;
 
-interface RenderingServiceInterface
+interface RenderServiceInterface
 {
     /**
      * return whether the mime type is supported or not
