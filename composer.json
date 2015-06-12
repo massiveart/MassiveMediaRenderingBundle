@@ -1,0 +1,12 @@
+{
+    "name": "massive/media-rendering-bundle",
+    "description": "Bundle to render images from assets",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Moder",
+            "email": "stefan.moder@massiveart.com"
+        }
+    ],
+    "require": {}
+}
