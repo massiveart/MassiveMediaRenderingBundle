@@ -14,18 +14,19 @@ class Document extends RenderServiceAbstract
      * @var RenderServiceInterface[];
      */
     private $services = array();
-
+   
     /**
-     * render media to images
+     * redner media to an image
      *
      * @param string $source
      * @param RenderOptions $options
+     * @param string $destination
      *
-     * @return ImageInterface|null
-     *
+     * @return ImageInterface
+     * 
      * @throws FileNotSupportedException
      */
-    public function render($source, RenderOptions $options)
+    public function render($source, RenderOptions $options, $destination = null)
     {
         $image = null;
         $mimeType = self::getMimeType($source);

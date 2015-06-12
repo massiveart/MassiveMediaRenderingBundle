@@ -14,10 +14,13 @@ class Image extends RenderServiceAbstract
      *
      * @param string $source
      * @param RenderOptions $options
+     * @param string $destination
      *
      * @return ImageInterface
+     * 
+     * @throws FileNotSupportedException
      */
-    public function render($source, RenderOptions $options)
+    public function render($source, RenderOptions $options, $destination = null)
     {
         $mimeType = self::getMimeType($source);
             

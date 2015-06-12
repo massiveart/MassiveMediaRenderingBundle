@@ -20,6 +20,7 @@ interface RenderServiceInterface
      *
      * @param string $source
      * @param RenderOptions $options
+     * @param string $destination
      *
      * @return ImageInterface
      */

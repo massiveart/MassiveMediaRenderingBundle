@@ -11,15 +11,15 @@ use Imagine\Imagick\Imagine;
 class Pdf extends RenderServiceAbstract
 {
     /**
-     * render media to image
+     * redner media to an image
      *
      * @param string $source
      * @param RenderOptions $options
+     * @param string $destination
      *
-     * @return ImageInterface Imagine
-     *
+     * @return ImageInterface
+     * 
      * @throws FileNotSupportedException
-     * @throws \Exception
      */
     public function render($source, RenderOptions $options, $destination = null)
     {

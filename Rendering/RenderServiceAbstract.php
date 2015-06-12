@@ -2,7 +2,8 @@
 
 namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
-use Massive\Bundle\MediaRenderingBundle\Rendering\ImageInterface;
+use Imagine\Image\Box;
+use Imagine\Image\ImageInterface;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderOptions;
 
 abstract class RenderServiceAbstract implements RenderServiceInterface
