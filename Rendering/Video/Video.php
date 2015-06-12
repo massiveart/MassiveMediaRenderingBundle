@@ -1,8 +1,8 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Video;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Video;
 
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
 
 class Video implements RenderingServiceInterface
 {

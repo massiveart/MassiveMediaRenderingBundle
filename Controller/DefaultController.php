@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Controller;
+namespace Massive\Bundle\MediaRenderingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

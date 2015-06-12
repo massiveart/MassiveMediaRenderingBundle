@@ -1,8 +1,8 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Image;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Image;
 
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
 
 class Image implements RenderingServiceInterface
 {

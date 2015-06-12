@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
 interface RenderingServiceInterface
 {

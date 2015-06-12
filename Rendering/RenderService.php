@@ -1,12 +1,12 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
 use Imagine\Image\ImageInterface;
-use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
-use Massive\MediaRenderingBundle\Rendering\Image\Image;
-use Massive\MediaRenderingBundle\Rendering\Document\Document;
-use Massive\MediaRenderingBundle\Rendering\Video\Video;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Image\Image;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Document\Document;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Video\Video;
 
 class RenderService
 {

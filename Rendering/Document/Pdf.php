@@ -1,8 +1,8 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Document;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
 
 class Pdf implements RenderingServiceInterface
 {

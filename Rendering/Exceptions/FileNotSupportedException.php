@@ -1,6 +1,6 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Exceptions;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions;
 
 /**
  * Class FileNotSupportedException

@@ -1,9 +1,9 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering\Document;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
-use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
 
 class Document implements RenderingServiceInterface
 {
