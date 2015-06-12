@@ -2,7 +2,9 @@
 
 namespace Massive\MediaRenderingBundle\Rendering\Video;
 
-class Video
+use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+
+class Video implements RenderingServiceInterface
 {
     
 }

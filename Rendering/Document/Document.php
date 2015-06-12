@@ -3,12 +3,13 @@
 namespace Massive\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
+use Massive\MediaRenderingBundle\Rendering\RenderingServiceInterface;
 
-class Document
+class Document implements RenderingServiceInterface
 {
     /**
      * @param string $source
-     * 
+     *
      * @return ImageInterface
      */
     public function render($source)
@@ -25,15 +26,16 @@ class Document
 
     /**
      * @param type $mimeType
-     * 
+     *
      * @return boolean
      */
     public function supportsMimeType($mimeType)
     {
         $supported = false;
         switch ($mimeType) {
-           case "application/pdf":
-               $supported = true;
+            case "application/pdf":
+                $supported = true;
+                break;
         }
         
         return $supported;
