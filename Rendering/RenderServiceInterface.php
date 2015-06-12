@@ -17,10 +17,11 @@ interface RenderServiceInterface
     
     /**
      * redner media to an image
-     * 
+     *
      * @param string $source
-     * 
+     * @param RenderOptions $options
+     *
      * @return ImageInterface
      */
-    public function render($source);
+    public function render($source, RenderOptions $options);
 }

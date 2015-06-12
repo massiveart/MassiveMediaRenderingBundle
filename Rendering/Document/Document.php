@@ -3,22 +3,27 @@
 namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
-use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderOptions;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceInterface;
+use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 
 class Document extends RenderServiceAbstract
 {
     /**
-     * @var RenderingServiceInterface[]; 
+     * @var RenderServiceInterface[];
      */
     private $services = array();
     
     /**
+     * redner media to an image
+     *
      * @param string $source
+     * @param RenderOptions $options
      *
      * @return ImageInterface
      */
-    public function render($source)
+    public function render($source, RenderOptions $options)
     {
         $image = null;
         $mimeType = self::getMimeType($source);
@@ -39,9 +44,9 @@ class Document extends RenderServiceAbstract
     }
     
     /**
-     * @param RenderingServiceInterface $service
+     * @param RenderServiceInterface $service
      */
-    public function addRenderService(RenderingServiceInterface $service)
+    public function addRenderService(RenderServiceInterface $service)
     {
         $this->services[] = $service;
     }

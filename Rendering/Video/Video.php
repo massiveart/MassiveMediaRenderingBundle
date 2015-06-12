@@ -3,17 +3,21 @@
 namespace Massive\Bundle\MediaRenderingBundle\Rendering\Video;
 
 use Imagine\Image\ImageInterface;
-use Massive\Bundle\MediaRenderingBundle\Rendering\RenderingServiceInterface;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderOptions;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 use Massive\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 
 class Video extends RenderServiceAbstract
 {
     /**
+     * redner media to an image
+     *
      * @param string $source
+     * @param RenderOptions $options
      *
      * @return ImageInterface
      */
-    public function render($source)
+    public function render($source, RenderOptions $options)
     {
         $image = null;
         $mimeType = self::getMimeType($source);

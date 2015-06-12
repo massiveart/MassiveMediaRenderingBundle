@@ -1,8 +1,8 @@
 <?php
 
-namespace Massive\MediaRenderingBundle\Rendering;
+namespace Massive\Bundle\MediaRenderingBundle\Rendering;
 
-abstract class RenderServiceAbstract implements RenderingServiceInterface
+abstract class RenderServiceAbstract implements RenderServiceInterface
 {
     /**
      * @param type $source

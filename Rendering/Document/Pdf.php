@@ -4,24 +4,37 @@ namespace Massive\Bundle\MediaRenderingBundle\Rendering\Document;
 
 use Imagine\Image\ImageInterface;
 use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
+use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderOptions;
+use Imagine\Imagick\Imagine;
 
 class Pdf extends RenderServiceAbstract
 {
-    /*
-     * @param string source
-     * 
+    /**
+     * redner media to an image
+     *
+     * @param string $source
+     * @param RenderOptions $options
+     *
      * @return ImageInterface
      */
-    public function render($source)
+    public function render($source, RenderOptions $options)
     {
-        $image = null;
         $mimeType = self::getMimeType($source);
         // check if mime type is supported
         if ($this->supportsMimeType($mimeType)) {
             throw new FileNotSupportedException($mimeType);
         }
         
-        // do converting
+        $im = new imagick($source . '[0]');
+        $im->setImageFormat($options->getDestinationFormat());
+        $tmpDestination = sys_get_temp_dir() . uniqid();
+        if (file_put_contents($tmpDestination, $im) === false) {
+            throw new \Exception('Could not write temporary file ' . $tmpDestination); 
+        }
+        
+        $image = new Imagine();
+        $image->open($tmpDestination);
         
         return $image;
     }

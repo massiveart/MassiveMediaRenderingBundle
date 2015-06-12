@@ -7,7 +7,7 @@ Als Quelle kann ein lokale Datei dienen oder die Resource über ein URL bezogen 
 Einfaches Konvertieren und Resizing eines Bildes von einem Format in ein anderes. JPG<=>PNG<=>GIF
 
 ### PDF thumbnail rendering
-Generierung eines Vorschaubildes aus einer PDF-Datei heraus.
+Generierung eines Vorschaubildes aus einer PDF-Datei heraus und Generierung eines Vorschaubildes jeder Seite.
 
 ### Video thumbnail rendering/frame extraction
 Extrahierung eines Vorschaubildes aus einem Video von einem definierten Zeitpunkt.

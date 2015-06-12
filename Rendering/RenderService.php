@@ -7,7 +7,7 @@ use Massive\Bundle\MediaRenderingBundle\Rendering\Document\Document;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Exceptions\FileNotSupportedException;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Image\Image;
 use Massive\Bundle\MediaRenderingBundle\Rendering\Video\Video;
-use Massive\MediaRenderingBundle\Rendering\RenderServiceAbstract;
+use Massive\Bundle\MediaRenderingBundle\Rendering\RenderServiceAbstract;
 
 class RenderService
 {
