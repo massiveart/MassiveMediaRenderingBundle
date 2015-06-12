@@ -4,13 +4,25 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="massive_media_rendering.example" class="Massive\MediaRenderingBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="massive_media_rendering.image" class="Massive\MediaRenderingBundle\Rendering\Image\Image">
+        </service>
+        
+        <service id="massive_media_rendering.document.pdf" class="Massive\MediaRenderingBundle\Rendering\Document\Pdf">
+        </service>
+    
+        <service id="massive_media_rendering.video" class="Massive\MediaRenderingBundle\Rendering\Video\Video">
+        </service>
+        
+        <service id="massive_media_rendering.document" class="Massive\MediaRenderingBundle\Rendering\Document\Document">
+        </service>
+        
+        <service id="massive_media_rendering.generic" class="Massive\MediaRenderingBundle\Rendering\RenderService">
+            <argument type="service" id="massive_media_rendering.image" />
+            <argument type="service" id="massive_media_rendering.document" />
+            <argument type="service" id="massive_media_rendering.video" />
         </service>
     </services>
-    -->
+
+
 </container>
