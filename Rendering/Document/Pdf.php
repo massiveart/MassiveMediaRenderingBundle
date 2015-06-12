@@ -29,21 +29,33 @@ class Pdf extends RenderServiceAbstract
             throw new FileNotSupportedException($mimeType, 1, null);
         }
 
-        $im = new \Imagick($source . '[0]');
+        if (!$options->isAllPages()) {
+            $source .= '[' . $options->getPage() . ']';
+        }
+
+        $im = new \Imagick($source);
         $im->setImageFormat($options->getDestinationFormat());
 
         $tmpDestination = sys_get_temp_dir() . uniqid();
 
-        if ($im->writeImage($tmpDestination) === false) {
-            throw new \Exception('Could not write temporary file ' . $tmpDestination); 
+        if ($options->isAllPages()) {
+            if ($im->writeImages($tmpDestination, false) === false) {
+                throw new \Exception('Could not write temporary file ' . $tmpDestination);
+            }
+        } else {
+            if ($im->writeImage($tmpDestination) === false) {
+                throw new \Exception('Could not write temporary file ' . $tmpDestination);
+            }
         }
-        
+
+        // TODO handle allPages
+
         $image = new Imagine();
         $image->open($tmpDestination);
         
         return $image;
     }
-    
+
     /**
      * @param string $mimeType
      *
