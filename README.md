@@ -15,6 +15,9 @@ Generierung von Kapitel-Vorschaubildern von definierten Zeitpunkten.
 
 ## Requirements
 
+    php-imagick
+    ghostscript
+
 ## Installation
 
 ## Usage
