@@ -46,7 +46,7 @@ class RenderService
 
         $image = null;
         if ($this->documentService->supportsMimeType($mimeType)) {
-            $image = $this->documentService->render($source, $options);
+            $image = $this->documentService->render($source, $options, $destination);
         } else if ($this->videoService->supportsMimeType($mimeType)) {
             $image = null;
         } else if ($this->imageService->supportsMimeType($mimeType)) {
@@ -54,7 +54,7 @@ class RenderService
         }  else {
             throw new FileNotSupportedException($mimeType, 1, null);
         }
-
+        
         return $image;
     }
 }

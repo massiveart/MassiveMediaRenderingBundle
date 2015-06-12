@@ -21,7 +21,7 @@ class Pdf extends RenderServiceAbstract
      * @throws FileNotSupportedException
      * @throws \Exception
      */
-    public function render($source, RenderOptions $options)
+    public function render($source, RenderOptions $options, $destination = null)
     {
         $mimeType = self::getMimeType($source);
         // check if mime type is supported

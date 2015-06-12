@@ -1,4 +1,7 @@
 # MassiveMediaRenderingBundle
+
+Noch zu übersetzen:
+
 Dieses Bundle stellt Services zum Rendern von Medien zur Verfügung. Bei diesen Medien kann es sich sowohl um Bilder, PDF-Dokumente als auch Videos im Format mp4 oder mov handeln.
 Als Quelle kann ein lokale Datei dienen oder die Resource über ein URL bezogen werden. 
 

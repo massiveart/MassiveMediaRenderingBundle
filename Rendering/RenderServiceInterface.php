@@ -23,5 +23,5 @@ interface RenderServiceInterface
      *
      * @return ImageInterface
      */
-    public function render($source, RenderOptions $options);
+    public function render($source, RenderOptions $options, $destination = null);
 }

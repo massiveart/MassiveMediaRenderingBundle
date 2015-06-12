@@ -19,13 +19,15 @@ class Image extends RenderServiceAbstract
      */
     public function render($source, RenderOptions $options)
     {
-        $image = null;
         $mimeType = self::getMimeType($source);
-                
+            
+        $image = null;
+        
         // check if mime type is supported
         if (!$this->supportsMimeType($mimeType)) {
             throw new FileNotSupportedException($mimeType);
         }
+        $image = $this->resize($image, $options);
         
         // convert
         return $image;
